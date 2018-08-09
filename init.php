@@ -46,10 +46,20 @@ function init(){
 
    class Dashboard extends \atk4\ui\View {
     public $defaultTemplate = __DIR__. '/dashboard.html';
+    
     function setModel($m)    {
         $model = parent::setModel($m);
-       $this->template['guests'] = $model->action('count')->getOne();
+      
+        
+        $this->template['guests'] = $model->action('count')->getOne();
        $this->template['drinks'] = $model->action('fx',['sum', 'units_of_drink'])->getOne();
+       $this->template['women'] = $model->addCondition('gender', 'female')->action('count')->getOne();
+       $this->template['men'] = $model->addCondition('gender', 'male')->action('count')->getOne();
+      
+      
+      
+
+       
         return $model;
     }
 }
