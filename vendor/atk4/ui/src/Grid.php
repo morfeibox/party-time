@@ -85,8 +85,8 @@ class Grid extends View
     public function init()
     {
         parent::init();
-
-        $this->container = $this->add(['View', 'ui'=>'', 'template' => new Template('<div id="{$_id}"><div class="ui table atk-overflow-auto">{$Table}{$Content}</div>{$Paginator}</div>')]);
+        $this->container = $this->add(['View', 'template' => $this->template->cloneRegion('Container')]);
+        $this->template->del('Container');
 
         if ($this->menu !== false) {
             $this->menu = $this->add($this->factory(['Menu', 'activate_on_click' => false], $this->menu), 'Menu');
@@ -371,10 +371,6 @@ class Grid extends View
         if ($this->sortable) {
             $this->applySort();
         }
-        if ($this->quickSearch && is_array($this->quickSearch)) {
-            $this->addQuickSearch($this->quickSearch);
-        }
-
         if ($this->quickSearch && is_array($this->quickSearch)) {
             $this->addQuickSearch($this->quickSearch);
         }

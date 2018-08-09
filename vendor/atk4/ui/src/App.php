@@ -16,7 +16,7 @@ class App
 
     // @var array|false Location where to load JS/CSS files
     public $cdn = [
-        'atk'              => 'https://cdn.rawgit.com/atk4/ui/1.5.1/public',
+        'atk'              => 'https://cdn.rawgit.com/atk4/ui/1.5.7/public',
         'jquery'           => 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1',
         'serialize-object' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0',
         'semantic-ui'      => 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1',
@@ -24,7 +24,7 @@ class App
     ];
 
     // @var string Version of Agile UI
-    public $version = '1.5.1';
+    public $version = '1.5.7';
 
     // @var string Name of application
     public $title = 'Agile UI - Untitled Application';
@@ -194,21 +194,30 @@ class App
         $this->catch_runaway_callbacks = false;
 
         $l = new \atk4\ui\App();
-        $l->catch_runaway_callbacks = false;
         $l->initLayout('Centered');
+
+        //check for error type.
         if ($exception instanceof \atk4\core\Exception) {
             $l->layout->template->setHTML('Content', $exception->getHTML());
         } elseif ($exception instanceof \Error) {
-            $l->layout->add(['Message', get_class($exception).': '.
-                $exception->getMessage().' (in '.$exception->getFile().':'.$exception->getLine().')',
-                'error', ]);
+            $l->layout->add(['Message', get_class($exception).': '.$exception->getMessage().' (in '.$exception->getFile().':'.$exception->getLine().')', 'error']);
             $l->layout->add(['Text', nl2br($exception->getTraceAsString())]);
         } else {
             $l->layout->add(['Message', get_class($exception).': '.$exception->getMessage(), 'error']);
         }
         $l->layout->template->tryDel('Header');
-        $l->run();
-        $this->run_called = true;
+
+        //send json for callback error.
+        if (isset($_GET['__atk_callback']) && !isset($_GET['__atk_tab'])) {
+            echo json_encode(['success'   => false,
+                                'message' => $l->layout->getHtml(),
+                             ]);
+        } else {
+            $l->catch_runaway_callbacks = false;
+            $l->run();
+            $this->run_called = true;
+        }
+        exit;
     }
 
     /**
@@ -240,20 +249,13 @@ class App
     /**
      * Initializes layout.
      *
-     * @param string|Layout\Generic $layout
-     * @param array                 $options
+     * @param string|Layout\Generic|array $seed
      *
      * @return $this
      */
-    public function initLayout($layout, $options = [])
+    public function initLayout($seed)
     {
-        $layout = $this->factory($layout, null, 'Layout');
-        /*
-        if (is_string($layout)) {
-            $layout = $this->normalizeClassNameApp($layout, 'Layout');
-            $layout = new $layout($options);
-        }
-        */
+        $layout = $this->factory($seed, null, 'Layout');
         $layout->app = $this;
 
         if (!$this->html) {

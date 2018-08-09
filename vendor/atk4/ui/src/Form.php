@@ -358,16 +358,22 @@ class Form extends View //implements \ArrayAccess - temporarily so that our buil
 
         $fallback_seed = ['Line'];
 
-        if ($f->enum) {
-            $fallback_seed = ['DropDown', 'values' => array_combine($f->enum, $f->enum)];
-        } elseif ($f->values) {
-            $fallback_seed = ['DropDown', 'values' => $f->values];
-        } elseif (isset($f->reference)) {
-            $fallback_seed = ['DropDown', 'model' => $f->reference->refModel()];
+        if ($f->type != 'boolean') {
+            if ($f->enum) {
+                $fallback_seed = ['DropDown', 'values' => array_combine($f->enum, $f->enum)];
+            } elseif ($f->values) {
+                $fallback_seed = ['DropDown', 'values' => $f->values];
+            } elseif (isset($f->reference)) {
+                $fallback_seed = ['DropDown', 'model' => $f->reference->refModel()];
+            }
         }
 
         if (isset($f->ui['hint'])) {
             $fallback_seed['hint'] = $f->ui['hint'];
+        }
+
+        if (isset($f->ui['placeholder'])) {
+            $fallback_seed['placeholder'] = $f->ui['placeholder'];
         }
 
         $seed = $this->mergeSeeds(

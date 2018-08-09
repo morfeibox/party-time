@@ -7,8 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'atk4\\ui\\' => array($vendorDir . '/atk4/ui/src'),
+    'atk4\\schema\\' => array($vendorDir . '/atk4/schema/src'),
+    'atk4\\login\\' => array($vendorDir . '/atk4/login/src'),
     'atk4\\dsql\\' => array($vendorDir . '/atk4/dsql/src'),
     'atk4\\data\\' => array($vendorDir . '/atk4/data/src'),
     'atk4\\core\\' => array($vendorDir . '/atk4/core/src'),
+    'Twilio\\' => array($vendorDir . '/twilio/sdk/Twilio'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
 );

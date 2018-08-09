@@ -237,6 +237,21 @@ class AutoComplete extends Input
         $this->initDropdown($chain);
 
         $this->js(true, $chain);
+
+        if ($this->field && $this->field->get()) {
+            $id_field = $this->id_field ?: $this->model->id_field;
+            $title_field = $this->title_field ?: $this->model->title_field;
+
+            $this->model->tryLoadBy($id_field, $this->field->get());
+
+            if (!$this->model->loaded()) {
+                $this->field->set(null);
+            } else {
+                $chain->dropdown('set value', $this->model[$id_field])->dropdown('set text', $this->model[$title_field]);
+                $this->js(true, $chain);
+            }
+        }
+
         parent::renderView();
     }
 }

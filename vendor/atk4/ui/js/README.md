@@ -97,6 +97,40 @@ This command will output the atkjs-ui.min.js file, also in /public folder.
 
 ## Release note
 
+### version 1.3.8
+
+  - allow jQuery FormSerializer to accept _ char at beginning of input name. ex: _e-mail
+  - Check for FormSerializer to be present before extending it. 
+
+
+### version 1.3.7
+
+  - allow jQuery FormSerializer to accept dash char in input name. ex: e-mail. 
+
+### version 1.3.6
+
+  - Add locutus library dependency for outputing js date using php format.
+    - use in Calendar.js formatter. 
+  - Fix fileUpload plugin to handle click event 
+    - allow to use click event after user cancel file upload open dialog using cancel button.
+  - fix fileUload plugin to find button eleemnt instead of direct setup. 
+    - now use this.$el.find... for multi jQuery compatibility.
+
+### version 1.3.5
+
+#### Changes in ModalService
+  - Set top modal position value to 'absolute'
+    - this fix semantic.ui 2.3.2 modal positioning problem.
+  - Add esc key handler to document while modal are in service.
+    - this allow to close all open modal window using esc key one after the others.  
+#### Changes in createModal
+  - Allow to pass a string icon value for closing icon.  
+
+### version 1.3.4
+
+  - Allow jsSearch to load using already set input value.
+  - Allow to set input filter in jsSearch using setFilter(text) function.
+
 ### version 1.3.3
 
    - Add onChange event handler for hidden input in conditionalForm in order to include new Dropdown field.

@@ -53,6 +53,98 @@ TODO: fully updated changelog will be in 1.5.1 version along with more examples!
 - fix 464 [\#470](https://github.com/atk4/ui/pull/470) ([DarkSide666](https://github.com/DarkSide666))
 - Feature/form custom layout [\#467](https://github.com/atk4/ui/pull/467) ([romaninsh](https://github.com/romaninsh))
 
+### 1.5.2
+
+**Closed issues:**
+
+- Class 'atk4\ui\FormLayout\Exception' not found \(in \_Abstract.php\) [\#480](https://github.com/atk4/ui/issues/480)
+- App-\>initLayout 2nd parameter $options [\#476](https://github.com/atk4/ui/issues/476)
+- allow to use icon in DropDown [\#473](https://github.com/atk4/ui/issues/473)
+- implement custom form layout [\#465](https://github.com/atk4/ui/issues/465)
+- TableColumn/Link doesn't evaluate as template [\#462](https://github.com/atk4/ui/issues/462)
+
+**Merged pull requests:**
+
+- feature/jsSearch-Initial-Value [\#490](https://github.com/atk4/ui/pull/490) ([ibelar](https://github.com/ibelar))
+- fix \#476 [\#489](https://github.com/atk4/ui/pull/489) ([DarkSide666](https://github.com/DarkSide666))
+- Fix/AutoComplete [\#488](https://github.com/atk4/ui/pull/488) ([ibelar](https://github.com/ibelar))
+- Allow $field-\>ui\['placeholder'\] to affect form fields' placeholder directly. [\#484](https://github.com/atk4/ui/pull/484) ([romaninsh](https://github.com/romaninsh))
+- Make View-\>on\(event, \[jsAction1, jsAction2\]\) work [\#482](https://github.com/atk4/ui/pull/482) ([PhilippGrashoff](https://github.com/PhilippGrashoff))
+- Fix/\#480 Unable to find Exception [\#481](https://github.com/atk4/ui/pull/481) ([ibelar](https://github.com/ibelar))
+- Fix/\#478 Notify options [\#479](https://github.com/atk4/ui/pull/479) ([ibelar](https://github.com/ibelar))
+- Fix/Dropdown search not showing input char [\#477](https://github.com/atk4/ui/pull/477) ([ibelar](https://github.com/ibelar))
+
+### 1.5.3
+
+This release addresses problem Semantic UI is having with multiple modals. We will now hide existing modal
+if new one needs to be opened and after this new modal is closed it will be re-opened once again. The relevant
+issue is [\#487](https://github.com/atk4/ui/issues/487)
+
+**Closed issues:**
+
+- Grid should have loader while reloading [\#493](https://github.com/atk4/ui/issues/493)
+
+**Merged pull requests:**
+
+- Grid will display loader while fetching data [\#497](https://github.com/atk4/ui/pull/497) ([ibelar](https://github.com/ibelar))
+- fix/\#487-Modal Behaviour [\#496](https://github.com/atk4/ui/pull/496) ([ibelar](https://github.com/ibelar))
+- fix/Persisitence-ui-for-reference-field [\#494](https://github.com/atk4/ui/pull/494) ([ibelar](https://github.com/ibelar))
+- atk4/ui/fix/\#491 auto complete not initializing with proper text [\#492](https://github.com/atk4/ui/pull/492) ([skondakov](https://github.com/skondakov))
+
+## 1.5.4
+
+This issue fixed a problem where modal windows coulddn't open when placed in a dynamic tab. There
+probably were some other situation where callbacks were not reachable, and this release should
+address them.
+
+**Closed issues:**
+
+- Add Filter Type Money [\#517](https://github.com/atk4/ui/issues/517)
+- UploadField: should open dialog on "click" too not only on "focus" [\#511](https://github.com/atk4/ui/issues/511)
+- UploadField compatibility with multiple jQuery [\#510](https://github.com/atk4/ui/issues/510)
+- Enhancement: Make dropdown options visible when clicking into empty area between text and dropdown icon [\#502](https://github.com/atk4/ui/issues/502)
+- Modal in Tab not working [\#500](https://github.com/atk4/ui/issues/500)
+- AutoComplete  not initializing with proper text [\#491](https://github.com/atk4/ui/issues/491)
+
+**Merged pull requests:**
+
+- Atk4/ui/fix/\#517 add filter type money [\#518](https://github.com/atk4/ui/pull/518) ([skondakov](https://github.com/skondakov))
+- fix/\#510-\#511-file-upload [\#516](https://github.com/atk4/ui/pull/516) ([ibelar](https://github.com/ibelar))
+- Fix/modal callback in modal callback [\#509](https://github.com/atk4/ui/pull/509) ([ibelar](https://github.com/ibelar))
+- Feature/Calendar-input-using-ui-persistence [\#508](https://github.com/atk4/ui/pull/508) ([ibelar](https://github.com/ibelar))
+- Fix problem with multiple callbacks being not executed [\#501](https://github.com/atk4/ui/pull/501) ([romaninsh](https://github.com/romaninsh))
+- hotfix [\#499](https://github.com/atk4/ui/pull/499) ([romaninsh](https://github.com/romaninsh))
+
+## 1.5.5
+
+**Closed issues:**
+
+- CRUD edit form reload don't use stickyGet parameters [\#524](https://github.com/atk4/ui/issues/524)
+- If AJAX request fails - provide user-friendly way to see error [\#522](https://github.com/atk4/ui/issues/522)
+- Date picker doesn't respect APP-\>ui\_persistence-\>date\_format [\#507](https://github.com/atk4/ui/issues/507)
+
+**Merged pull requests:**
+
+- feature/allow dash char in form input name [\#530](https://github.com/atk4/ui/pull/530) ([ibelar](https://github.com/ibelar))
+- fix/\#522 Ajax error display [\#529](https://github.com/atk4/ui/pull/529) ([ibelar](https://github.com/ibelar))
+- Fix/issue\#524 crud [\#527](https://github.com/atk4/ui/pull/527) ([ibelar](https://github.com/ibelar))
+- Add FilterMode\TypeDatetime [\#520](https://github.com/atk4/ui/pull/520) ([skondakov](https://github.com/skondakov))
+- Atk4/feature/add filter type boolean [\#519](https://github.com/atk4/ui/pull/519) ([skondakov](https://github.com/skondakov))
+
+## 1.5.6
+
+**Merged pull requests:**
+
+- Fix decorator for boolean fields with enum set [\#533](https://github.com/atk4/ui/pull/533) ([DarkSide666](https://github.com/DarkSide666))
+- fix/caughtException in tab [\#531](https://github.com/atk4/ui/pull/531) ([ibelar](https://github.com/ibelar))
+- feature/Allow customization of container and table in grid. [\#528](https://github.com/atk4/ui/pull/528) ([ibelar](https://github.com/ibelar))
+
+## 1.5.7
+
+**Merged pull requests:**
+
+- fix/FormSerializer option [\#537](https://github.com/atk4/ui/pull/537) ([ibelar](https://github.com/ibelar))
+
 ## 1.4
 
 In this version we focus on high-level components: Wizard, Console, ProgressBar, AutoComplete field, Lister, Radio field
