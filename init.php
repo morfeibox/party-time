@@ -52,8 +52,8 @@ function init(){
       
         
        $count = $model->action('count')->getOne();
-       $ageSum = $model->action('fx',['sum', 'age'])->getOne();
-       $avarageAge = ($ageSum / $count);
+       $avarageAge= $model->action('fx',['avg', 'age'])->getOne();
+      // $avarageAge = ($ageSum / $count);
        $this->template['avarageAge'] = $avarageAge;
        $this->template['guests'] = $count;
        $this->template['drinks'] = $model->action('fx',['sum', 'units_of_drink'])->getOne();
