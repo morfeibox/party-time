@@ -50,12 +50,11 @@ function init(){
     function setModel($m)    {
         $model = parent::setModel($m);
       
-        
-       $count = $model->action('count')->getOne();
+      
        $avarageAge= $model->action('fx',['avg', 'age'])->getOne();
-      // $avarageAge = ($ageSum / $count);
+    
        $this->template['avarageAge'] = $avarageAge;
-       $this->template['guests'] = $count;
+       $this->template['guests'] = $model->action('count')->getOne();
        $this->template['drinks'] = $model->action('fx',['sum', 'units_of_drink'])->getOne();
        $this->template['women'] = $model->addCondition('gender', 'female')->action('count')->getOne();
        $this->template['men'] = $model->addCondition('gender', 'male')->action('count')->getOne();
